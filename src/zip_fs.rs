@@ -63,6 +63,10 @@ impl<R: Read + Seek> ZipFS<R> {
             ZipError::UnsupportedArchive(error_str) => {
                 io::Error::new(ErrorKind::Unsupported, error_str)
             }
+            ZipError::InvalidPassword => {
+                io::Error::new(ErrorKind::InvalidData, "Invalid password")
+            }
+            _ => io::Error::new(ErrorKind::Other, format!("{}", err)),
         })
     }
 
