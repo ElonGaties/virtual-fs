@@ -9,8 +9,9 @@ use std::io;
 use std::io::{Cursor, ErrorKind, Read, Seek, SeekFrom, Write};
 use std::path::{Path, PathBuf};
 use zip::read::ZipFile;
-use zip::result::{ZipError, ZipResult};
 use zip::ZipArchive;
+
+pub use zip::result::{ZipError, ZipResult};
 
 /// A virtual FileSystem backed by a ZIP file. Only supports read operations for now.
 #[derive(Debug)]
