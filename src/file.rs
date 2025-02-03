@@ -42,7 +42,7 @@ impl DirEntry {
 
     /// Returns true if the entry is a file.
     pub fn is_file(&self) -> bool {
-        self.metadata.is_directory()
+        !self.metadata.is_directory()
     }
 
     /// Returns the length of the file, in bytes.
